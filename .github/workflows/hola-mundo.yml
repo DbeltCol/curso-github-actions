@@ -7,4 +7,4 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: correr script
-        uses: node index.js
+        run: node index.js
