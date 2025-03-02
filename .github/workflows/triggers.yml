@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - aprendiendo-github-actions
 jobs:
   hello-world-from-python:
     runs-on: ubuntu-latest
