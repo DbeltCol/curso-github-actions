@@ -1,0 +1,23 @@
+name: Triggers de workflow
+run-name: Aprendiendo a usar triggers mediante yml
+on: 
+  push:
+    branches:
+      - master
+jobs:
+  hello-world-from-python:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      -name: define a variable
+        run: echo "USERNAME=${{github.actor}}" >> $GITHUB_NAME
+      - name: run script
+        run: python hello-world.py 
+
+
+
+
+        
+  
+
