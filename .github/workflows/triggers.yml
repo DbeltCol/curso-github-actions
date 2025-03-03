@@ -6,7 +6,7 @@ on:
       - master
       - aprendiendo-github-actions
   issues:
-    types: [opened]
+    types: [opened,closed]
 jobs:
   hello-world-from-python:
     if: ${{ github.event_name != 'push' }}
