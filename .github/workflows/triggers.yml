@@ -20,8 +20,6 @@ jobs:
         run: python hello-world.py 
   validate-issues:
     runs-on: ubuntu-latest
-    environment:
-      admin: "Diego"
     steps:
       - name: Checkout
         uses: actions/checkout@v3
