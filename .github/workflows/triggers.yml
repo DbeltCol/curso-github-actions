@@ -29,7 +29,7 @@ jobs:
         run: |
           echo "Se ha activado el workflow por un issue"
           echo "Estado del issue ${{github.event.issue.state}}"
-          echo "Usuario que registro el issue ${{user}}"
+          echo "Usuario que registro el issue $user"
 
 
 
