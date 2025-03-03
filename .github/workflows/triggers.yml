@@ -18,6 +18,19 @@ jobs:
         run: echo "USERNAME=${{github.actor}}" >> $GITHUB_ENV
       - name: run script
         run: python hello-world.py 
+  validate-issues:
+    runs-on: ubuntu-latest
+    environment:
+      user: ${{github.event.issue.user.login}}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: validate issues
+        run: |
+          echo "Se ha activado el workflow por un issue"
+          echo "Estado del issue ${{github.event.issue.state}}"
+          echo "Usuario que registro el issue ${{user}}"
+
 
 
 
