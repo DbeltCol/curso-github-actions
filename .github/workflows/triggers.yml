@@ -21,15 +21,17 @@ jobs:
   validate-issues:
     runs-on: ubuntu-latest
     environment:
-      user: ${{github.event.issue.user.login}}
+      admin: "Diego"
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      - name: Definir nombre del admin
+        run: echo "admin=Diego" >> $GITHUB_ENV
       - name: validate issues
         run: |
-          echo "Se ha activado el workflow por un issue"
+          echo "Hola $admin,Se ha activado el workflow por un issue"
           echo "Estado del issue ${{github.event.issue.state}}"
-          echo "Usuario que registro el issue $user"
+          echo "Usuario que registro el issue ${{github.event.issue.user.login}}"
 
 
 
