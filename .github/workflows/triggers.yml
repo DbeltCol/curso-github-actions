@@ -1,0 +1,40 @@
+name: Triggers de workflow
+run-name: Aprendiendo a usar triggers mediante yml
+on: 
+  push:
+    branches:
+      - master
+      - aprendiendo-github-actions
+  issues:
+    types: [opened,closed]
+jobs:
+  hello-world-from-python:
+    if: ${{ github.event_name != 'push' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: define a variable
+        run: echo "USERNAME=${{github.actor}}" >> $GITHUB_ENV
+      - name: run script
+        run: python hello-world.py 
+  validate-issues:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Definir nombre del admin
+        run: echo "admin=Diego" >> $GITHUB_ENV
+      - name: validate issues
+        run: |
+          echo "Hola $admin,Se ha activado el workflow por un issue"
+          echo "Estado del issue ${{github.event.issue.state}}"
+          echo "Usuario que registro el issue ${{github.event.issue.user.login}}"
+
+
+
+
+
+        
+  
+

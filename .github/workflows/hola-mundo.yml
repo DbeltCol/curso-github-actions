@@ -1,0 +1,10 @@
+name: Hola mundo en GitHub Actions
+on: [push]
+jobs:
+  hola_mundo:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: correr script
+        run: node index.js
